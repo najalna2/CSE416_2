@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>US Map</title>
+    <style>
+      #map {
+        width: 100%;
+        height: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script>
+      // Create the map centered on the US and set zoom levels and max bounds
+      var map = L.map('map', {
+        center: [39.8283, -98.5795],
+        zoom: 4,
+        minZoom: 4,
+        maxZoom: 7,
+        maxBounds: [
+          [49.496674527470455, -127.61718749999999],
+          [23.725011735951796, -65.56640625]
+        ]
+      });
+
+      // Add a tile layer to the map
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors',
+        maxZoom: 18
+      }).addTo(map);
+
+      // Add markers for the three selectable states
+      var states = [
+        { name: "California", lat: 36.7783, lng: -119.4179 },
+        { name: "Texas", lat: 31.9686, lng: -99.9018 },
+        { name: "New York", lat: 43.2994, lng: -74.2179 }
+      ];
+      states.forEach(function(state) {
+        L.marker([state.lat, state.lng]).addTo(map).bindPopup(state.name);
+      });
+    </script>
+  </body>
+</html>
