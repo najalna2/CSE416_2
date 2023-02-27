@@ -9,6 +9,7 @@ import flGeoJSON from '../data/fl.json';
 import msGeoJSON from '../data/ms.json';
 
 export default class Map extends React.Component {
+    //map boundary
     constructor(props) {
         super(props);
         this.mapStyle = {
@@ -18,6 +19,7 @@ export default class Map extends React.Component {
             weight: 1,
         }
     }
+    //click district
     onEachDistrict(district, layer) {
         layer.on({
             click: (event) => {
@@ -29,6 +31,7 @@ export default class Map extends React.Component {
             },
         });
     }
+    //USA map
     render() {
         return (
             <MapContainer center={[31.5256333, -87.7335333]} zoom={6} minZoom={6} maxBounds={[[20.636, -100.806], [41.592, -73.896]]}>
