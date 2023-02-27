@@ -1,8 +1,8 @@
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-import React from 'react';
 import '../css/Map.css';
+import React from 'react';
 
 import arGeoJSON from '../data/ar.json';
 import flGeoJSON from '../data/fl.json';
@@ -13,7 +13,8 @@ export default class Map extends React.Component {
         super(props);
         this.mapStyle = {
             color: 'white',
-            fillColor: 'blue',
+            fillColor: '#000000',
+            fillOpacity: 0.25,
             weight: 1,
         }
     }
@@ -21,16 +22,17 @@ export default class Map extends React.Component {
         layer.on({
             click: (event) => {
                 console.log(event);
-            }
+                event.target.setStyle({
+                    fillColor: '#3498db',
+                    fillOpacity: 0.5,
+                });
+            },
         });
     }
     render() {
         return (
-            <MapContainer center={[31.5256333, -87.7335333]} zoom={6}>
-                <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-                />
+            <MapContainer center={[31.5256333, -87.7335333]} zoom={6} minZoom={6}>
+                <TileLayer url='https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=jj3bMkYjsUQfoqrwGXXs' />
                 <GeoJSON style={this.mapStyle} data={arGeoJSON.features} onEachFeature={this.onEachDistrict}></GeoJSON>
                 <GeoJSON style={this.mapStyle} data={flGeoJSON.features} onEachFeature={this.onEachDistrict}></GeoJSON>
                 <GeoJSON style={this.mapStyle} data={msGeoJSON.features} onEachFeature={this.onEachDistrict}></GeoJSON>

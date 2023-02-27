@@ -1,7 +1,8 @@
-import React from 'react';
-import '../css/Home.css';
-
 import Map from '../components/Map.js';
+import Nav from '../components/Nav.js'
+
+import '../css/Home.css';
+import React from 'react';
 
 export default class Home extends React.Component {
     constructor(props) {
@@ -9,7 +10,10 @@ export default class Home extends React.Component {
     }
     render() {
         return (
-            <Map></Map>
+            <div id='home-container'>
+                <Map id='map'></Map>
+                <Nav id='nav'></Nav>
+            </div>
         )
     }
 }

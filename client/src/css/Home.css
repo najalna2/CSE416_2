@@ -1,0 +1,14 @@
+#home-container {
+    display: grid;
+    grid-template: "map nav" 100%
+                  / auto     400px;
+    height: 100%;
+}
+
+#nav {
+    grid-area: nav;
+}
+
+#map {
+    grid-area: map;
+}
