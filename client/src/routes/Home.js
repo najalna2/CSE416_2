@@ -1,6 +1,6 @@
 import Map from '../components/Map.js';
 import Nav from '../components/Nav.js'
-import Layout from "./components/Layout/Layout";
+//import Layout from "./components/Layout/Layout";
 
 import '../css/Home.css';
 import React from 'react';
