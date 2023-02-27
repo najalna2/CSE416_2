@@ -11,12 +11,12 @@ export default class Home extends React.Component {
     }
     render() {
         return (
-            <Layout>
+            //<Layout>
                 <div id='home-container'>
                     <Map id='map'></Map>
                     <Nav id='nav'></Nav>
                 </div>
-            </Layout>
+            //</Layout>
         )
     }
 }
