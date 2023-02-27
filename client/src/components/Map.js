@@ -13,9 +13,16 @@ export default class Map extends React.Component {
         super(props);
         this.mapStyle = {
             color: 'white',
-            fillColor: 'red',
+            fillColor: 'blue',
             weight: 1,
         }
+    }
+    onEachDistrict(district, layer) {
+        layer.on({
+            click: (event) => {
+                console.log(event);
+            }
+        });
     }
     render() {
         return (
@@ -24,9 +31,9 @@ export default class Map extends React.Component {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                 />
-                <GeoJSON style={this.mapStyle} data={arGeoJSON.features}></GeoJSON>
-                <GeoJSON style={this.mapStyle} data={flGeoJSON.features}></GeoJSON>
-                <GeoJSON style={this.mapStyle} data={msGeoJSON.features}></GeoJSON>
+                <GeoJSON style={this.mapStyle} data={arGeoJSON.features} onEachFeature={this.onEachDistrict}></GeoJSON>
+                <GeoJSON style={this.mapStyle} data={flGeoJSON.features} onEachFeature={this.onEachDistrict}></GeoJSON>
+                <GeoJSON style={this.mapStyle} data={msGeoJSON.features} onEachFeature={this.onEachDistrict}></GeoJSON>
             </MapContainer>
         )
     }
