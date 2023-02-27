@@ -31,7 +31,7 @@ export default class Map extends React.Component {
     }
     render() {
         return (
-            <MapContainer center={[31.5256333, -87.7335333]} zoom={6} minZoom={6}>
+            <MapContainer center={[31.5256333, -87.7335333]} zoom={6} minZoom={6} maxBounds={[[20.636, -100.806], [41.592, -73.896]]}>
                 <TileLayer url='https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=jj3bMkYjsUQfoqrwGXXs' />
                 <GeoJSON style={this.mapStyle} data={arGeoJSON.features} onEachFeature={this.onEachDistrict}></GeoJSON>
                 <GeoJSON style={this.mapStyle} data={flGeoJSON.features} onEachFeature={this.onEachDistrict}></GeoJSON>
