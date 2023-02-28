@@ -25,12 +25,8 @@ export default class Map extends React.Component {
     }
     handleEachDistrict = (district, layer) => {
         layer.bindPopup(`District ${district.properties.Districts}`);
+        // TEMP DATA
         layer.options.fillColor = Math.random() < 0.5 ? '#3498db' : '#e74c3c';
-        layer.on({
-            click: (event) => {
-                
-            }
-        });
     }
     handleEachState = (state, layer) => {
         layer.on({

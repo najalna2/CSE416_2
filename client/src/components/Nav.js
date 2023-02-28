@@ -1,6 +1,8 @@
 import '../css/Nav.css';
 import React from 'react';
 
+import Table from './Table.js';
+
 export default class Nav extends React.Component {
     constructor(props) {
         super(props);
@@ -15,7 +17,7 @@ export default class Nav extends React.Component {
                     <option value='fl'>Florida</option>
                     <option value='ms'>Mississippi</option>
                 </select>
-                <button>toggle incumbents</button>
+                <Table selectedState={this.props.selectedState}/>
             </div>
         )
     }
