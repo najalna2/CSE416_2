@@ -15,6 +15,7 @@ export default class Nav extends React.Component {
                     <option value='fl'>Florida</option>
                     <option value='ms'>Mississippi</option>
                 </select>
+                <button>toggle incumbents</button>
             </div>
         )
     }
