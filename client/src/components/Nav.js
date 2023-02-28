@@ -1,6 +1,8 @@
 import '../css/Nav.css';
 import React from 'react';
 
+import StateSelect from './StateSelect.js';
+import ToggleColor from './ToggleColor.js';
 import Table from './Table.js';
 
 export default class Nav extends React.Component {
@@ -10,13 +12,8 @@ export default class Nav extends React.Component {
     render() {
         return (
             <div>
-                <span>Selected State: </span>
-                <select onChange={(event) => this.props.syncSelectedState(event.target.value)} value={this.props.selectedState}>
-                    <option value='none'> -- Select a State -- </option>
-                    <option value='ar'>Arkansas</option>
-                    <option value='fl'>Florida</option>
-                    <option value='ms'>Mississippi</option>
-                </select>
+                <StateSelect selectedState={this.props.selectedState} syncSelectedState={(state) => this.props.syncSelectedState(state)}/>
+                <ToggleColor color={this.props.color} syncColor={(state) => this.props.syncColor(state)}/>
                 <Table selectedState={this.props.selectedState}/>
             </div>
         )

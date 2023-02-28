@@ -53,7 +53,14 @@ export default class Map extends React.Component {
                 </tr>
             </table>
         `);
-        layer.options.fillColor = Math.random() < 0.5 ? '#3498db' : '#e74c3c';
+        if(this.props.color === 'none')
+            layer.options.color = '#000000';
+        else if(this.props.color === 'party')
+            layer.options.fillColor = Math.random() < 0.5 ? '#3498DB' : '#E74C3C';
+        else if(this.props.color === 'safe')
+            layer.options.fillColor = Math.random() < 0.5 ? '#9b59b6' : '#f1c40f';
+        else if(this.props.color === 'incumbent')
+            layer.options.fillColor = Math.random() < 0.5 ? '#FFFFFF' : '#000000';
     }
     handleEachState = (state, layer) => {
         layer.on({
@@ -62,16 +69,19 @@ export default class Map extends React.Component {
             }
         });
     }
+    componentDidUpdate() {
+        console.log(this.props.color);
+    }
     render() {
         return (
             <MapContainer center={locations[this.props.selectedState].center} zoom={locations[this.props.selectedState].zoom} minZoom={6} maxBounds={[[20.636, -100.806], [41.592, -73.896]]}>
                 <TileLayer url='https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=jj3bMkYjsUQfoqrwGXXs' />
                 {this.props.selectedState !== 'ar' && (<GeoJSON style={mapStyle} data={arState.geometry} onEachFeature={this.handleEachState}></GeoJSON>)}
-                {this.props.selectedState === 'ar' && (<GeoJSON style={mapStyle} data={arDistrict.features} onEachFeature={this.handleEachDistrict}></GeoJSON>)}
+                {this.props.selectedState === 'ar' && (<GeoJSON style={mapStyle} data={arDistrict.features} onEachFeature={this.handleEachDistrict} key={this.props.color}></GeoJSON>)}
                 {this.props.selectedState !== 'fl' && (<GeoJSON style={mapStyle} data={flState.geometry} onEachFeature={this.handleEachState}></GeoJSON>)}
-                {this.props.selectedState === 'fl' && (<GeoJSON style={mapStyle} data={flDistrict.features} onEachFeature={this.handleEachDistrict}></GeoJSON>)}
+                {this.props.selectedState === 'fl' && (<GeoJSON style={mapStyle} data={flDistrict.features} onEachFeature={this.handleEachDistrict} key={this.props.color + 1}></GeoJSON>)}
                 {this.props.selectedState !== 'ms' && (<GeoJSON style={mapStyle} data={msState.geometry} onEachFeature={this.handleEachState}></GeoJSON>)}
-                {this.props.selectedState === 'ms' && (<GeoJSON style={mapStyle} data={msDistrict.features} onEachFeature={this.handleEachDistrict}></GeoJSON>)}
+                {this.props.selectedState === 'ms' && (<GeoJSON style={mapStyle} data={msDistrict.features} onEachFeature={this.handleEachDistrict} key={this.props.color + 2}></GeoJSON>)}
                 <ChangeLocation center={locations[this.props.selectedState].center} zoom={locations[this.props.selectedState].zoom}/>
             </MapContainer>
         )

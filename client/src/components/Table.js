@@ -34,7 +34,7 @@ export default class Table extends React.Component {
     }
     render() {
         return (
-            <table>
+            this.state.data.length !== 0 && <table>
                 <thead>
                     <tr>
                         <th>Name</th>
