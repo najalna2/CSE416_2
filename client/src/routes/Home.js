@@ -1,6 +1,5 @@
 import Map from '../components/Map.js';
 import Nav from '../components/Nav.js'
-//import Layout from "./components/Layout/Layout";
 
 import '../css/Home.css';
 import React from 'react';
@@ -8,15 +7,22 @@ import React from 'react';
 export default class Home extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            selectedState: 'none'
+        }
+    }
+    syncSelectedState(state) {
+        this.setState({
+            selectedState: state
+        });
+        console.log(state);
     }
     render() {
         return (
-            //<Layout>
-                <div id='home-container'>
-                    <Map id='map'></Map>
-                    <Nav id='nav'></Nav>
-                </div>
-            //</Layout>
+            <div id='home-container'>
+                <Map id='map' selectedState={this.state.selectedState} syncSelectedState={(state) => this.syncSelectedState(state)}></Map>
+                <Nav id='nav' selectedState={this.state.selectedState} syncSelectedState={(state) => this.syncSelectedState(state)}></Nav>
+            </div>
         )
     }
 }
