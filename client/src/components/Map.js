@@ -44,21 +44,12 @@ export default class Map extends React.Component {
         return (
             <MapContainer center={locations[this.props.selectedState].center} zoom={locations[this.props.selectedState].zoom} minZoom={6} maxBounds={[[20.636, -100.806], [41.592, -73.896]]}>
                 <TileLayer url='https://api.maptiler.com/maps/basic-v2/{z}/{x}/{y}.png?key=jj3bMkYjsUQfoqrwGXXs' />
-                {
-                    this.props.selectedState === 'ar'
-                    ? <GeoJSON style={mapStyle} data={arDistrict.features} onEachFeature={this.onEachDistrict}></GeoJSON>
-                    : <GeoJSON style={mapStyle} data={arState.geometry} onEachFeature={this.handleEachState}></GeoJSON>
-                }
-                {
-                    this.props.selectedState === 'fl'
-                    ? <GeoJSON style={mapStyle} data={flDistrict.features} onEachFeature={this.onEachDistrict}></GeoJSON>
-                    : <GeoJSON style={mapStyle} data={flState.geometry} onEachFeature={this.handleEachState}></GeoJSON>
-                }
-                {
-                    this.props.selectedState === 'ms'
-                    ? <GeoJSON style={mapStyle} data={msDistrict.features} onEachFeature={this.onEachDistrict}></GeoJSON>
-                    : <GeoJSON style={mapStyle} data={msState.geometry} onEachFeature={this.handleEachState}></GeoJSON>
-                }
+                {this.props.selectedState !== 'ar' && (<GeoJSON style={mapStyle} data={arState.geometry} onEachFeature={this.handleEachState}></GeoJSON>)}
+                {this.props.selectedState === 'ar' && (<GeoJSON style={mapStyle} data={arDistrict.features} onEachFeature={this.onEachDistrict}></GeoJSON>)}
+                {this.props.selectedState !== 'fl' && (<GeoJSON style={mapStyle} data={flState.geometry} onEachFeature={this.handleEachState}></GeoJSON>)}
+                {this.props.selectedState === 'fl' && (<GeoJSON style={mapStyle} data={flDistrict.features} onEachFeature={this.onEachDistrict}></GeoJSON>)}
+                {this.props.selectedState !== 'ms' && (<GeoJSON style={mapStyle} data={msState.geometry} onEachFeature={this.handleEachState}></GeoJSON>)}
+                {this.props.selectedState === 'ms' && (<GeoJSON style={mapStyle} data={msDistrict.features} onEachFeature={this.onEachDistrict}></GeoJSON>)}
                 <ChangeLocation center={locations[this.props.selectedState].center} zoom={locations[this.props.selectedState].zoom}/>
             </MapContainer>
         )

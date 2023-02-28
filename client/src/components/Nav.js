@@ -8,9 +8,9 @@ export default class Nav extends React.Component {
     render() {
         return (
             <div>
-                <span>states: </span>
+                <span>Selected State: </span>
                 <select onChange={(event) => this.props.syncSelectedState(event.target.value)} value={this.props.selectedState}>
-                    <option disabled value='none'> -- select a state -- </option>
+                    <option value='none'> -- Select a State -- </option>
                     <option value='ar'>Arkansas</option>
                     <option value='fl'>Florida</option>
                     <option value='ms'>Mississippi</option>
