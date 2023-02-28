@@ -13,9 +13,8 @@ import flDistrict from '../data/flDistrict.json';
 import msDistrict from '../data/msDistrict.json';
 
 const mapStyle = {
-    color: '#FFFFFF',
-    fillColor: '#FFFFFF',
-    fillOpacity: 1,
+    color: '#000000',
+    fillOpacity: 0,
     weight: 2,
 };
 
@@ -53,9 +52,11 @@ export default class Map extends React.Component {
                 </tr>
             </table>
         `);
-        if(this.props.color === 'none')
+        layer.options.fillOpacity = 1;
+        if(this.props.color === 'none') {
             layer.options.color = '#000000';
-        else if(this.props.color === 'party')
+            layer.options.fillOpacity = 0;
+        } else if(this.props.color === 'party')
             layer.options.fillColor = Math.random() < 0.5 ? '#3498DB' : '#E74C3C';
         else if(this.props.color === 'safe')
             layer.options.fillColor = Math.random() < 0.5 ? '#9b59b6' : '#f1c40f';
