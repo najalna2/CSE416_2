@@ -24,8 +24,35 @@ export default class Map extends React.Component {
         super(props);
     }
     handleEachDistrict = (district, layer) => {
-        layer.bindPopup(`District ${district.properties.Districts}`);
         // TEMP DATA
+        layer.bindPopup(`
+            <table>
+                <tr>
+                    <td>District</td>
+                    <td>${district.properties.Districts}</td>
+                </tr>
+                <tr>
+                    <td>Representative Name</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>2022 Election Results</td>
+                    <td>${(Math.random() < 0.5) ? 'W' : 'L'}</td>
+                </tr>
+                <tr>
+                    <td>Geometric Differences</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Population Differences</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Demographic Details</td>
+                    <td>N/A</td>
+                </tr>
+            </table>
+        `);
         layer.options.fillColor = Math.random() < 0.5 ? '#3498db' : '#e74c3c';
     }
     handleEachState = (state, layer) => {
