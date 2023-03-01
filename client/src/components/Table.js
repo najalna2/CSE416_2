@@ -44,6 +44,7 @@ export default class Table extends React.Component {
             const tempData = [];
             for(let i = 0; i < districts[this.props.selectedState]; i ++)
                 tempData.push({
+                    district: i + 1,
                     name: randomFullnames[Math.floor(Math.random() * randomFullnames.length)],
                     party: Math.random() < 0.5 ? 'Dem' : 'Rep',
                     result: Math.random() < 0.5 ? 'W' : 'L',
@@ -60,6 +61,7 @@ export default class Table extends React.Component {
             this.state.data.length !== 0 && <table id='district-table'>
                 <thead>
                     <tr>
+                        <th>Dis.</th>
                         <th>Name</th>
                         <th>Party</th>
                         <th>Result</th>
@@ -69,7 +71,8 @@ export default class Table extends React.Component {
                 </thead>
                 <tbody>
                     {this.state.data.map((row) => {
-                        return <tr key={row.pop}>
+                        return <tr key={row.district}>
+                            <td>{row.district}</td>
                             <td>{row.name}</td>
                             <td>{row.party}</td>
                             <td>{row.result}</td>
