@@ -46,8 +46,8 @@ export default class Table extends React.Component {
                 tempData.push({
                     district: i + 1,
                     name: randomFullnames[Math.floor(Math.random() * randomFullnames.length)],
-                    party: Math.random() < 0.5 ? 'Dem' : 'Rep',
-                    result: Math.random() < 0.5 ? 'W' : 'L',
+                    party: Math.random() < 0.5 ? 'Dem.' : 'Rep.',
+                    result: Math.random() < 0.5 ? 'Won' : 'Lost',
                     geo: Math.round(Math.random() * 100000) / 100000,
                     pop: Math.floor(Math.random() * 1000 - 500),
                 });
