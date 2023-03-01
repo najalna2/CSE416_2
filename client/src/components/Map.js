@@ -27,32 +27,27 @@ export default class Map extends React.Component {
         layer.bindPopup(`
             <table>
                 <tr>
+                    <td>State</td>
+                    <td style=float:right>${district.properties.State.toUpperCase()}</td>
+                </tr>
+                <tr>
                     <td>District</td>
-                    <td>${district.properties.Districts}</td>
+                    <td style=float:right>${district.properties.District}</td>
                 </tr>
                 <tr>
                     <td>Representative Name</td>
-                    <td>N/A</td>
+                    <td style=float:right>N/A</td>
                 </tr>
                 <tr>
                     <td>2022 Election Results</td>
-                    <td>${(Math.random() < 0.5) ? 'W' : 'L'}</td>
+                    <td style=float:right>${(Math.random() < 0.5) ? 'W' : 'L'}</td>
                 </tr>
-                <tr>
-                    <td>Geometric Differences</td>
-                    <td>N/A</td>
-                </tr>
-                <tr>
-                    <td>Population Differences</td>
-                    <td>N/A</td>
-                </tr>
-                <tr>
-                    <td>Demographic Details</td>
-                    <td>N/A</td>
+                <tr style=float:right>
+                    <td><a href='/district_info/${district.properties.State}${district.properties.District}'>More Details</a</td>
                 </tr>
             </table>
         `);
-        layer.options.fillOpacity = 1;
+        layer.options.fillOpacity = 0.75;
         if(this.props.color === 'none') {
             layer.options.color = '#000000';
             layer.options.fillOpacity = 0;

@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import './css/index.css';
 import Home from './routes/Home.js';
+import DistrictInfo from './routes/DistrictInfo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -11,6 +12,7 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={ <Home /> } />
+                <Route path='/district_info/:id' element={ <DistrictInfo/> }/>
             </Routes>
         </BrowserRouter>
     </React.StrictMode>
