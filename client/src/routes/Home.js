@@ -1,6 +1,9 @@
 import Map from '../components/Map.js';
 import Nav from '../components/Nav.js'
 
+import Header from '../components/Header.js'
+import Footer from '../components/Footer.js'
+
 import '../css/Home.css';
 import React from 'react';
 
@@ -24,6 +27,9 @@ export default class Home extends React.Component {
     }
     render() {
         return (
+            <>
+            <Header></Header>
+
             <div id='home-container'>
                 <Map id='map'
                     selectedState={this.state.selectedState}
@@ -37,6 +43,9 @@ export default class Home extends React.Component {
                     syncColor={(color) => this.syncColor(color)}
                 ></Nav>
             </div>
+            <Footer></Footer>
+            </>
+
         )
     }
 }
