@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../components/Header.js'
 import Footer from '../components/Footer.js'
-import Home from '../routes/Home.js'
 import '../css/Ensemble.css'
 
 
@@ -24,10 +23,10 @@ export default class Ensemble extends React.Component {
             <nav>
 
             </nav>
-            <div className='left'>
+            <div id='left'>
                 <h2>left</h2>
             </div>
-            <div className='right'>
+            <div id='right'>
                 <h2>right</h2>
             </div>
             <Footer></Footer>

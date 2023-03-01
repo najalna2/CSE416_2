@@ -2,7 +2,7 @@
     display: grid;
     grid-template: "map nav" 100%
                   / auto     480px;
-    height: 85%;
+    height: calc(100% - 80px);
 }
 
 #nav {
