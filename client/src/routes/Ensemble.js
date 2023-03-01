@@ -1,6 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import Header from '../components/Header.js'
 import Footer from '../components/Footer.js'
+import Home from '../routes/Home.js'
 import '../css/Ensemble.css'
 
 
@@ -21,15 +22,23 @@ export default class Ensemble extends React.Component {
             <>
             <Header></Header>
             <nav>
-
+                <span >District plan no: </span>
+                <input type={"number"}></input>
+                <span>Incumbents no: </span>
+                <input type={"number"}></input>
+                <span>Incumbents win: </span>
+                <input type={"text"}></input>
+                <span>Geographic Variation: </span>
+                <input type={"number"}></input>
+                <span>population Variation: </span>
+                <input type={"number"}></input>
             </nav>
             <div id='left'>
-                <h2>left</h2>
-            </div>
-            <div id='right'>
                 <h2>right</h2>
             </div>
-            <Footer></Footer>
+            <div id='right'>
+                <h2>left</h2>
+            </div>
             </>
         )
     }
