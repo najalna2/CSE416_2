@@ -1,0 +1,41 @@
+.product-district {
+    text-align:center;
+    display:table;
+    border:1px solid #cecece;
+    width:560px;
+    height:500px;
+}
+
+.product-representative {
+    text-align:center;
+    display:table;
+    border:1px solid #cecece;
+    width:280px;
+    height:250px;
+}
+
+.product-img-div {
+    display:table-cell;
+    vertical-align:middle;
+}
+.product-map {
+    max-width:400px;
+    max-height:400px;
+}
+.product-img {
+    max-width:180px;
+    max-height:180px;
+}
+.container {
+    font-family: arial;
+    font-size: 24px;
+    margin: 25px;
+    position: relative;
+  }
+  
+  .child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px;
+  }

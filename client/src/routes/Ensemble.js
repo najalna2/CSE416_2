@@ -5,7 +5,9 @@ import Home from '../routes/Home.js'
 import '../css/Ensemble.css'
 import BarChartSample from '../components/BarChartSample.js'
 import representativePhoto from '../images/biden.jpg'
+import districtPhoto from '../images/district.png'
 import imageCompression from 'browser-image-compression';
+import '../css/Image.css'
 
 export default class Ensemble extends React.Component {
     static demoUrl = 'https://codesandbox.io/s/tiny-bar-chart-35meb';
@@ -38,16 +40,32 @@ export default class Ensemble extends React.Component {
                 <input type={"number"}></input>
             </nav>
             <div id='left'>
-                <h2>left</h2>
+                <div>
+                
+                    <div class="product-district">
+                    <h3><p>District</p></h3>
+                        <div class="product-img-div">
+                            <img src={districtPhoto} class ='product-map' alt="district"/>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id='right'>
+                <h3>BarChartSample</h3>
                 <div style={{ width: 500, height: 500 }}>
                     <BarChartSample />
                 </div>
             </div>
+            
             <div id='left'>
-                <div style={{ width: 300, height: 300 }}>
-                <img src={representativePhoto} alt="representative"/>
+                <div id='left'>
+                    <div class="product-representative">
+                        <div class="product-img-div">
+                            <img src={representativePhoto} class ='product-img' alt="representative"/>
+                        </div>
+                    </div>
+                    
+                        <h3><p>representative Name</p></h3>
                 </div>
             </div>
             
