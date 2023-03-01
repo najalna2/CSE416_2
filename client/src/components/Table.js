@@ -49,7 +49,7 @@ export default class Table extends React.Component {
                     party: Math.random() < 0.5 ? 'Dem' : 'Rep',
                     result: Math.random() < 0.5 ? 'W' : 'L',
                     geo: Math.round(Math.random() * 100000) / 100000,
-                    pop: Math.floor(Math.random() * 100000),
+                    pop: Math.floor(Math.random() * 1000 - 500),
                 });
             this.setState({
                 data: tempData
@@ -66,7 +66,7 @@ export default class Table extends React.Component {
                         <th>Party</th>
                         <th>Result</th>
                         <th>Geo Var.</th>
-                        <th>Pop</th>
+                        <th>Pop Δ</th>
                     </tr>
                 </thead>
                 <tbody>
