@@ -42,10 +42,10 @@ export default class Ensemble extends React.Component {
             <div id='left'>
                 <div>
                 
-                    <div class="product-district">
+                    <div className="product-district">
                     <h3><p>District</p></h3>
-                        <div class="product-img-div">
-                            <img src={districtPhoto} class ='product-map' alt="district"/>
+                        <div className="product-img-div">
+                            <img src={districtPhoto} className ='product-map' alt="district"/>
                         </div>
                     </div>
                 </div>
@@ -59,9 +59,9 @@ export default class Ensemble extends React.Component {
             
             <div id='left'>
                 <div id='left'>
-                    <div class="product-representative">
-                        <div class="product-img-div">
-                            <img src={representativePhoto} class ='product-img' alt="representative"/>
+                    <div className="product-representative">
+                        <div className="product-img-div">
+                            <img src={representativePhoto} className ='product-img' alt="representative"/>
                         </div>
                     </div>
                     
