@@ -13,7 +13,7 @@ root.render(
         <BrowserRouter>
             <Routes>
                 <Route path='/' element={ <Home /> } />
-                
+                <Route path='/ensemble' element={ <Ensemble /> } />
                 <Route path='/district_info/:id' element={ <DistrictInfo/> }/>
             </Routes>
         </BrowserRouter>
