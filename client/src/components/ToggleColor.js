@@ -7,7 +7,7 @@ export default class ToggleColor extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div id='togglecolor-container'>
                 <span>Selected Display Type: </span>
                 <select onChange={(event) => this.props.syncColor(event.target.value)} value={this.props.color}>
                     <option value='none'>None</option>

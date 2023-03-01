@@ -65,9 +65,6 @@ export default class Map extends React.Component {
             }
         });
     }
-    componentDidUpdate() {
-        console.log(this.props.color);
-    }
     render() {
         return (
             <MapContainer center={locations[this.props.selectedState].center} zoom={locations[this.props.selectedState].zoom} minZoom={6} maxBounds={[[20.636, -100.806], [41.592, -73.896]]}>

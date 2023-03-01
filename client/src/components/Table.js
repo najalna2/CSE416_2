@@ -8,6 +8,29 @@ const districts = {
     ms: 4
 };
 
+const randomFullnames = [
+    "Sophia Rodriguez",
+    "Liam Johnson",
+    "Olivia Smith",
+    "Noah Williams",
+    "Emma Brown",
+    "Oliver Garcia",
+    "Ava Martinez",
+    "Elijah Davis",
+    "Isabella Anderson",
+    "Lucas Martinez",
+    "Mia Hernandez",
+    "Mason Jackson",
+    "Charlotte Lee",
+    "Logan Wright",
+    "Amelia Taylor",
+    "Ethan Moore",
+    "Harper Wilson",
+    "Alexander Perez",
+    "Evelyn Martin",
+    "Daniel Nelson"
+];
+
 export default class Table extends React.Component {
     constructor(props) {
         super(props);
@@ -21,11 +44,11 @@ export default class Table extends React.Component {
             const tempData = [];
             for(let i = 0; i < districts[this.props.selectedState]; i ++)
                 tempData.push({
-                    name: "n/a",
-                    party: Math.random() < 0.5 ? 'D' : 'R',
-                    result: "n/a",
-                    geo: "n/a",
-                    pop: Math.random() * 10000,
+                    name: randomFullnames[Math.floor(Math.random() * randomFullnames.length)],
+                    party: Math.random() < 0.5 ? 'Dem' : 'Rep',
+                    result: Math.random() < 0.5 ? 'W' : 'L',
+                    geo: Math.round(Math.random() * 100000) / 100000,
+                    pop: Math.floor(Math.random() * 100000),
                 });
             this.setState({
                 data: tempData
@@ -34,13 +57,13 @@ export default class Table extends React.Component {
     }
     render() {
         return (
-            this.state.data.length !== 0 && <table>
+            this.state.data.length !== 0 && <table id='district-table'>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Party</th>
                         <th>Result</th>
-                        <th>Geo</th>
+                        <th>Geo Var.</th>
                         <th>Pop</th>
                     </tr>
                 </thead>

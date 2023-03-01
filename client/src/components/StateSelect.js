@@ -7,7 +7,7 @@ export default class StateSelect extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div id='stateselect-container'>
                 <span>Selected State: </span>
                 <select onChange={(event) => this.props.syncSelectedState(event.target.value)} value={this.props.selectedState}>
                     <option value='none'> -- Select a State -- </option>

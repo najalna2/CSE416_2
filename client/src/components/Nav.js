@@ -11,7 +11,7 @@ export default class Nav extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div id='nav-container'>
                 <StateSelect selectedState={this.props.selectedState} syncSelectedState={(state) => this.props.syncSelectedState(state)}/>
                 <ToggleColor color={this.props.color} syncColor={(state) => this.props.syncColor(state)}/>
                 <Table selectedState={this.props.selectedState}/>
