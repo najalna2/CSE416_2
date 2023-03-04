@@ -42,6 +42,14 @@ export default class Map extends React.Component {
                     <td>2022 Election Results</td>
                     <td style=float:right>${(Math.random() < 0.5) ? 'W' : 'L'}</td>
                 </tr>
+                <tr>
+                    <td>Total Population</td>
+                    <td style=float:right>N/A</td>
+                </tr>
+                <tr>
+                    <td>Population Variance</td>
+                    <td style=float:right>N/A</td>
+                </tr>
                 <tr style=float:right>
                     <td><a href='/district_info/${district.properties.State}${district.properties.District}'>More Details</a</td>
                 </tr>
