@@ -1,35 +1,7 @@
+const axios = require('axios');
+
 import '../css/Table.css'
 import React from 'react';
-
-const districts = {
-    none: 0,
-    ar: 4,
-    fl: 28,
-    ms: 4
-};
-
-const randomFullnames = [
-    "Sophia Rodriguez",
-    "Liam Johnson",
-    "Olivia Smith",
-    "Noah Williams",
-    "Emma Brown",
-    "Oliver Garcia",
-    "Ava Martinez",
-    "Elijah Davis",
-    "Isabella Anderson",
-    "Lucas Martinez",
-    "Mia Hernandez",
-    "Mason Jackson",
-    "Charlotte Lee",
-    "Logan Wright",
-    "Amelia Taylor",
-    "Ethan Moore",
-    "Harper Wilson",
-    "Alexander Perez",
-    "Evelyn Martin",
-    "Daniel Nelson"
-];
 
 export default class Table extends React.Component {
     constructor(props) {
@@ -40,21 +12,17 @@ export default class Table extends React.Component {
     }
     componentDidUpdate(prevProps) {
         if(prevProps.selectedState !== this.props.selectedState) {
-            // TEMP DATA
-            const tempData = [];
-            for(let i = 0; i < districts[this.props.selectedState]; i ++)
-                tempData.push({
-                    district: i + 1,
-                    name: randomFullnames[Math.floor(Math.random() * randomFullnames.length)],
-                    party: Math.random() < 0.5 ? 'Dem.' : 'Rep.',
-                    result: Math.random() < 0.5 ? 'Won' : 'Lost',
-                    geo: Math.round(Math.random() * 100000) / 100000,
-                    pop: Math.floor(Math.random() * 1000 - 500),
+            if(this.props.selectedState === 'none')
+                return this.setState({
+                    data: []
                 });
-            this.setState({
-                data: tempData
-            });
+            axios.get(`http://localhost:8080/server/afishapi/states/${this.props.selectedState.toUpperCase()}`).then(handleGet);
         }
+    }
+    handleGet(response) {
+        this.setState({
+            data: response.data
+        });
     }
     render() {
         return (
@@ -71,13 +39,13 @@ export default class Table extends React.Component {
                 </thead>
                 <tbody>
                     {this.state.data.map((row) => {
-                        return <tr key={row.district}>
-                            <td>{row.district}</td>
+                        return <tr key={row.district_number}>
+                            <td>{row.district_number}</td>
                             <td>{row.name}</td>
                             <td>{row.party}</td>
-                            <td>{row.result}</td>
-                            <td>{row.geo}</td>
-                            <td>{row.pop}</td>
+                            <td>{row.election_results}</td>
+                            <td>{row.geo_variance}</td>
+                            <td>{row.pop_variance}</td>
                         </tr>
                     })}
                 </tbody>
